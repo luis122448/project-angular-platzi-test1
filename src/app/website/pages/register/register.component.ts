@@ -6,7 +6,8 @@ import { OnExit } from 'src/app/guards/exit.guard';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss']
 })
-export class RegisterComponent {
+// Implementando Funcion Logica
+export class RegisterComponent implements OnExit{
 
   onExit(){
     const rta = confirm('Desea Salir?')

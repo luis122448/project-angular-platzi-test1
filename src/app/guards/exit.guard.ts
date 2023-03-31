@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanDeactivate, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Observable } from 'rxjs';
 
-
+ // Funcion de Activacion
 export interface OnExit {
   onExit: () => Observable<boolean> | Promise<boolean> | boolean;
 }
