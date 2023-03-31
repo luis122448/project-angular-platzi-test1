@@ -1,0 +1,37 @@
+<button (click)="onSaveProduct()" >Save Test</button>
+<button (click)="onLoadMore()" >Load More</button>
+<button (click)="onShowDetail('1000')">Detalle Not Found</button>
+{{statusDetailt}}
+<div class="products--grid">
+  <app-product [product]="product"
+    *ngFor="let product of products"
+    (addCartProduct)="onAddToShoppingCart($event)"
+    (showDetail)="onShowDetail($event)">
+  </app-product>
+</div>
+<div *ngIf="productChosen" class="product-detail" [class.active]="showProductDetail">
+  <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" *ngFor="let img of productChosen.images; index as i" class="carousel-item" [class.active]="i === indexImgActivate"
+      data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    </div>
+    <div class="carousel-inner">
+      <div *ngFor="let img of productChosen.images; index as i" class="carousel-item" [class.active]="i === indexImgActivate" >
+        <img [src]="img" class="d-block w-100" alt="...">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev" (click)="onPrevImage()">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next" (click)="onNextImage()">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+  <h1>{{ productChosen.title }}</h1>
+  <p>{{ productChosen.description }}</p>
+  <button (click)="onToogleProductDetail()">Close</button>
+  <button (click)="onUpdateProduct()">Edit</button>
+  <button (click)="onDeleteProduct()" >Delete</button>
+</div>
